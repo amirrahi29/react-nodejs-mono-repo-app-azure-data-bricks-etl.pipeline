@@ -1,0 +1,25 @@
+{
+  "name": "deployment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo: web (React) + api (Express)",
+  "packageManager": "npm@11.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:ci": "turbo run test",
+    "start:web": "npm run start -w @repo/web",
+    "start:api": "npm run start -w @repo/api",
+    "preview": "npm run build -w @repo/web && NODE_ENV=production PORT=3000 node apps/api/src/index.js"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  }
+}

@@ -1,0 +1,24 @@
+# Staging - namespace `staging`. Tag `staging-<sha>`.
+replicaCount: 2
+
+extraEnv:
+  - name: APP_ENV
+    value: staging
+
+podAnnotations:
+  environment: staging
+
+resources:
+  limits:
+    cpu: 400m
+    memory: 384Mi
+  requests:
+    cpu: 75m
+    memory: 96Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: ""

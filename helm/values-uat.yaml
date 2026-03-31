@@ -1,0 +1,24 @@
+# UAT - namespace `uat`. Tag `uat-<sha>`.
+replicaCount: 2
+
+extraEnv:
+  - name: APP_ENV
+    value: uat
+
+podAnnotations:
+  environment: uat
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: ""
