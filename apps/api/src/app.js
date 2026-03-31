@@ -37,7 +37,7 @@ function createApp(config) {
         return res.status(404).json(notFound);
       }
       if (req.method !== "GET") {
-        return res.status(404).json(notFound);
+        return res.status(404).json(notFound); 
       }
       res.sendFile(
         path.join(config.webBuildDir, "index.html"),
