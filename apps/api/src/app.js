@@ -25,7 +25,7 @@ function createApp(config) {
   });
 
   api.get("/test", (_req, res) => {
-    res.json({ msg: "staging backend app" }); 
+    res.json({ msg: "staging backend app" });
   });
 
   app.use("/api", api);
